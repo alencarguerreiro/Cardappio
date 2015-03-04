@@ -1486,7 +1486,7 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	'EMPRESAID': '1',
 	'DATARESERVA': '04/03/2015',
 	'HORA': '17',
-	'MINUTOS': '15',
+	'MINUTOS': '30',
 	'LISTAITENS': '',
 	'CARRINHOID': '',
 	'CLIENTETELEFONE': '',
@@ -1525,7 +1525,7 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	EMPRESAID: '1',
 	DATARESERVA: '04/03/2015',
 	HORA: '17',
-	MINUTOS: '15',
+	MINUTOS: '30',
 	LISTAITENS: '',
 	CARRINHOID: '',
 	CLIENTETELEFONE: '',
@@ -2038,7 +2038,7 @@ DLG1_DlgObj.setValue('DEVICELATITUDE',DLG1_DlgObj.geolocation.latitude );
 DLG1_DlgObj.setValue('DEVICELONGITUDE',DLG1_DlgObj.geolocation.longitude );
 showMapRoute();}
 DLG1_DlgObj.setStateInfo({
-	__dialogGuid: 'ffae6c9b-0ca5-4c4e-b9ad-74061b92e438',
+	__dialogGuid: '26ae281d-5292-44f2-8558-736db81a9b54',
 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\n',
 	__dtfmt: 'dd/MM/yyyy',
 	__tfmt: '',
@@ -5407,7 +5407,7 @@ DLG1_DlgObj._listViewData['LISTARESERVAS'] = A5DataArrayToObject(['ReservaID','C
  ]); 
 DLG1_DlgObj._listViewData['MENUPRINCIPAL'] = A5DataArrayToObject(['icone','opcao','painel'],[['','Home','PL_INICIO'],['','Card&aacutepio','PC_CARDAPIO'],['','Carrinho','PC_CARRINHO_ITEM'],['','Endere&ccedilo','PC_ENDERECO'],['','Reservas','PC_RESERVAS'],['','Mensagens','PC_MENSAGENS'],['','Promo&ccedil&otildees','PC_PROMOCAO'],['','Meus Dados','PC_DADOS']]);
 ;
-DLG1_DlgObj.setStateInfo({ 	__dialogGuid: 'ffae6c9b-0ca5-4c4e-b9ad-74061b92e438', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\n', 	__dtfmt: 'dd/MM/yyyy' });
+DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '26ae281d-5292-44f2-8558-736db81a9b54', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\n', 	__dtfmt: 'dd/MM/yyyy' });
 DLG1_DlgObj._spinListData['HORA'] = [
 {html: '&nbsp;', value: ''},
 {html: '08', value: '08'},
@@ -8280,6 +8280,8 @@ window.location = 'tel:' + number;
 
 
 $e.add('DLG1.V.R1.BUTTON_30',A5.d.evnts.click,function(e) {
+alert("Botao Pressionado");
+
 var input = PUBNUB.$('DLG1.V.R1.CHATINPUT');
 PUBNUB.publish(
 	{
