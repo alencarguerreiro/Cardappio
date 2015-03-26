@@ -501,6 +501,9 @@ font-family:'Open Sans Condensed';
 
 
 
+
+
+
 <style type="text/css">
 ._DLG1_LISTACARRINHOITEM_dirtyRow { position:relative; }
 ._DLG1_LISTACARRINHOITEM_dirtyRow:before { 
@@ -666,7 +669,8 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 <body class="iOS7Page">
 <iframe style="display:none;" id="DLG1.__IFRAME1"></iframe>
 <input type="hidden" value="" id="DLG1.PARAMETERBUCKET"/>
-<input type="file" style="position:absolute; top:-1000px;visibility:hidden;" accept="image/*" id="DLG1._GETPHOTO"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" multiple = "" id="DLG1._GETFILEMULTI"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" id="DLG1._GETFILE"/><input type="hidden" id="DLG1.V.R1.LISTAITENS" name="V.R1.LISTAITENS" />
+<input type="file" style="position:absolute; top:-1000px;visibility:hidden;" accept="image/*" id="DLG1._GETPHOTO"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" multiple = "" id="DLG1._GETFILEMULTI"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" id="DLG1._GETFILE"/><input type="hidden" id="DLG1.V.R1.LISTACATEGORIAS" name="V.R1.LISTACATEGORIAS" />
+<input type="hidden" id="DLG1.V.R1.LISTAITENS" name="V.R1.LISTAITENS" />
 <input type="hidden" id="DLG1.V.R1.LISTACARRINHOITEM" name="V.R1.LISTACARRINHOITEM" />
 <input type="hidden" id="DLG1.V.R1.LISTARESERVAS" name="V.R1.LISTARESERVAS" />
 <input type="hidden" id="DLG1.V.R1.MENUPRINCIPAL" name="V.R1.MENUPRINCIPAL" />
@@ -960,6 +964,54 @@ for(var i = 0; i < this.panels.length; i++) {
 	animation: {
 		duration: 400
 	}
+})
+},
+{
+	name: 'PC_CATEGORIAS',
+	size: '100%',
+	dock: 'none',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="A5CWLayout" style="width: 4in" >\n\t<label id="DLG1.LBL.R1.LISTACATEGORIAS" for="DLG1.V.R1.LISTACATEGORIAS" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Lista Categorias</label>\n\n\t\n<div  class="iOS7List"   style="padding:0px; "  >\n\t<div id="DLG1.V.R1.LISTACATEGORIAS.CONTROL"  style="overflow: auto; width: 100%; height: 3in; "></div>\n</div>\n\n</div><br style="clear:both; " />\n\t\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: {
+			axis: 'both',
+			stopPropogation: false,
+			pull: {
+				y: 'auto',
+				x: 'auto'
+			},
+			indicator: {
+				show: true,
+				h: {
+					show: true,
+					location: 'right',
+					offset: '0px',
+					left: '0px',
+					right: '0px'
+				},
+				v: {
+					show: true,
+					location: 'right',
+					offset: '0px',
+					top: '0px',
+					bottom: '0px'
+				}
+			}
+		}
+	},
+	header: {
+		html: '<div style="display:none;"></div>'
+	},
+	footer: {
+	},
+	overlay: {
+	},
+	onSize: function() {;
+if(typeof DLG1_DlgObj != 'undefined') {var mObj = DLG1_DlgObj.getControl('LISTACATEGORIAS'); if(mObj) mObj.refresh();}}
 })
 },
 {
@@ -1364,8 +1416,10 @@ for(var i = 0; i < this.panels.length; i++) {
 		visiblePanels.push(this.panels[i].name);
 	}
 }
+var ix = visiblePanels.indexOf('PC_CATEGORIAS'); if(ix > -1) {  setTimeout(function() { DLG1_DlgObj._initialListRender('LISTACATEGORIAS');},5);    }
 var ix = visiblePanels.indexOf('PC_CARDAPIO'); if(ix > -1) {  setTimeout(function() { DLG1_DlgObj._initialListRender('LISTAITENS');},5);    }},
-	onDockPanelShow: function() {if(this.state.currentDockPanel == 'PC_CARDAPIO') {  setTimeout(function() { DLG1_DlgObj._initialListRender('LISTAITENS');},5);    }},
+	onDockPanelShow: function() {if(this.state.currentDockPanel == 'PC_CATEGORIAS') {  setTimeout(function() { DLG1_DlgObj._initialListRender('LISTACATEGORIAS');},5);    }
+if(this.state.currentDockPanel == 'PC_CARDAPIO') {  setTimeout(function() { DLG1_DlgObj._initialListRender('LISTAITENS');},5);    }},
 	onPanelActivate: function() {DLG1_DlgObj.refreshClientSideComputations();},
 	flow: 'ltr',
 	header: {
@@ -1460,6 +1514,7 @@ DLG1_PanelObj._panelPath = {
 	PC_INICIO_BTN1: 'PANELLAYOUT_2:PL_INICIO:PC_INICIO_BTN1',
 	PC_INICIO_BTN2: 'PANELLAYOUT_2:PL_INICIO:PC_INICIO_BTN2',
 	PC_INICIO_BTN3: 'PANELLAYOUT_2:PL_INICIO:PC_INICIO_BTN3',
+	PC_CATEGORIAS: 'PANELLAYOUT_2:PC_CATEGORIAS',
 	PC_CARDAPIO: 'PANELLAYOUT_2:PC_CARDAPIO',
 	PC_CARRINHO: 'PANELLAYOUT_2:PC_CARRINHO',
 	PC_CARRINHO_ITEM: 'PANELLAYOUT_2:PC_CARRINHO_ITEM',
@@ -1473,7 +1528,7 @@ DLG1_PanelObj._panelPath = {
 	PC_MENUPRINCIPAL: 'PANELLAYOUT_2:PC_MENUPRINCIPAL'
 }
 DLG1_PanelObj._displayNames = {
-PC_INICIO_BTN1 : 'PC_INICIO_BTN1',PC_INICIO_BTN2 : 'PC_INICIO_BTN2',PC_INICIO_BTN3 : 'PC_INICIO_BTN3',PC_CARDAPIO : 'PC_CARDAPIO',PC_CARRINHO : 'PC_CARRINHO',PC_CARRINHO_ITEM : 'PC_CARRINHO_ITEM',PC_DV_CARRINHO_ITEM : 'PC_DV_CARRINHO_ITEM',PC_ENDERECO : 'PC_ENDERECO',PC_MAP_ROUTE : 'PC_MAP_ROUTE',PC_ROUTE_DESC : 'PC_ROUTE_DESC',PC_MENSAGENS : 'PC_MENSAGENS',PC_RESERVAS : 'PC_RESERVAS',PC_MENUPRINCIPAL : 'PC_MENUPRINCIPAL',PN_CARDAPIO : 'PN_CARDAPIO',PN_MAP_ROUTE : 'PN_MAP_ROUTE',PANELLAYOUT_2 : 'PANELLAYOUT_2',PL_INICIO : 'PL_INICIO'
+PC_INICIO_BTN1 : 'PC_INICIO_BTN1',PC_INICIO_BTN2 : 'PC_INICIO_BTN2',PC_INICIO_BTN3 : 'PC_INICIO_BTN3',PC_CATEGORIAS : 'PC_CATEGORIAS',PC_CARDAPIO : 'PC_CARDAPIO',PC_CARRINHO : 'PC_CARRINHO',PC_CARRINHO_ITEM : 'PC_CARRINHO_ITEM',PC_DV_CARRINHO_ITEM : 'PC_DV_CARRINHO_ITEM',PC_ENDERECO : 'PC_ENDERECO',PC_MAP_ROUTE : 'PC_MAP_ROUTE',PC_ROUTE_DESC : 'PC_ROUTE_DESC',PC_MENSAGENS : 'PC_MENSAGENS',PC_RESERVAS : 'PC_RESERVAS',PC_MENUPRINCIPAL : 'PC_MENUPRINCIPAL',PN_CARDAPIO : 'PN_CARDAPIO',PN_MAP_ROUTE : 'PN_MAP_ROUTE',PANELLAYOUT_2 : 'PANELLAYOUT_2',PL_INICIO : 'PL_INICIO'
 };
 if(typeof DLG1_DlgObj == 'object') DLG1_DlgObj._destroy();
 var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
@@ -1481,12 +1536,13 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	_embeddedMode: false,
 	_livePreviewInBuilder: false,
 	componentGUID: '545f3d53-aeae-4c22-a287-5f85b80ae3c3',
-	columnInfo: {'LISTAITENS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTETELEFONE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTENOME': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTACARRINHOITEM': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID_1': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'ITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMQTD': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMPRECOUNIT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'EMPRESAID': {info: {controlType: 'TextBox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAFANTASIA': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDENDERECO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDERECONUMERO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDNUMERO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCOMPLEMENTO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDBAIRRO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCIDADE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDUF': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCEP': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESATELEFONE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAPAIS': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELATITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELONGITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINIMAPA': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MAPROUTE': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CHATINPUT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTARESERVAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MENUPRINCIPAL': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'USUARIOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'SENHA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LOGGEDIN': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DATARESERVA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'D'  },'HORA': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINUTOS': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'PESSOAS': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RESERVADATAHORA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},
+	columnInfo: {'LISTACATEGORIAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTAITENS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTETELEFONE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTENOME': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTACARRINHOITEM': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID_1': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'ITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMQTD': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMPRECOUNIT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'EMPRESAID': {info: {controlType: 'TextBox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAFANTASIA': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDENDERECO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDERECONUMERO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDNUMERO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCOMPLEMENTO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDBAIRRO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCIDADE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDUF': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCEP': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESATELEFONE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAPAIS': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELATITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELONGITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINIMAPA': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MAPROUTE': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CHATINPUT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTARESERVAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MENUPRINCIPAL': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'USUARIOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'SENHA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LOGGEDIN': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DATARESERVA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'D'  },'HORA': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINUTOS': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'PESSOAS': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RESERVADATAHORA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},
 	originalValues: [{
 	'EMPRESAID': '1',
-	'DATARESERVA': '04/03/2015',
-	'HORA': '17',
+	'DATARESERVA': '26/03/2015',
+	'HORA': '15',
 	'MINUTOS': '30',
+	'LISTACATEGORIAS': '',
 	'LISTAITENS': '',
 	'CARRINHOID': '',
 	'CLIENTETELEFONE': '',
@@ -1523,9 +1579,10 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 }],
 	defaultValues: {
 	EMPRESAID: '1',
-	DATARESERVA: '04/03/2015',
-	HORA: '17',
+	DATARESERVA: '26/03/2015',
+	HORA: '15',
 	MINUTOS: '30',
+	LISTACATEGORIAS: '',
 	LISTAITENS: '',
 	CARRINHOID: '',
 	CLIENTETELEFONE: '',
@@ -2038,8 +2095,8 @@ DLG1_DlgObj.setValue('DEVICELATITUDE',DLG1_DlgObj.geolocation.latitude );
 DLG1_DlgObj.setValue('DEVICELONGITUDE',DLG1_DlgObj.geolocation.longitude );
 showMapRoute();}
 DLG1_DlgObj.setStateInfo({
-	__dialogGuid: '26ae281d-5292-44f2-8558-736db81a9b54',
-	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\n',
+	__dialogGuid: 'c930ac4c-bda3-4de0-888b-44e3ca81917a',
+	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n',
 	__dtfmt: 'dd/MM/yyyy',
 	__tfmt: '',
 	__sgr: ''
@@ -2047,7 +2104,7 @@ DLG1_DlgObj.setStateInfo({
 DLG1_DlgObj._cascadingControls = [];
 DLG1_DlgObj._cascadingControlsChildren = [];
 DLG1_DlgObj.setStateInfo({ });
-DLG1_DlgObj.setStateInfo({ 	__args_N_carrinhoatual: '0', 	__args_C_usuarioatual: '(51)9155-2004' });
+DLG1_DlgObj.setStateInfo({ 	__args_N_carrinhoatual: '0', 	__args_C_usuarioatual: '(51)9155-2004', 	__args_N_categoriaatual: '0' });
 A5.msgBox.buttons.yes = {html: 'Sim'};
 A5.msgBox.buttons.no = {html: 'N&atildeo'};
 A5.msgBox.theme = 'iOS7';
@@ -2055,6 +2112,7 @@ A5.msgBox.buttonWidth = '1in';
 DLG1_DlgObj._defaultWindowTitleDirection = 'ltr';
 DLG1_DlgObj._controlContainers = {}
 DLG1_DlgObj._panelCardControls = {
+LISTACATEGORIAS:'PC_CATEGORIAS',
 LISTAITENS:'PC_CARDAPIO',
 CARRINHOID:'PC_CARRINHO',
 CLIENTETELEFONE:'PC_CARRINHO',
@@ -2397,6 +2455,656 @@ DLG1_DlgObj._buttons['BUTTON_2'].bind('DLG1.V.R1.BUTTON_2');
 DLG1_DlgObj._buttons['BUTTON_1'].bind('DLG1.V.R1.BUTTON_1');
 DLG1_DlgObj._buttons['BUTTON_3'].bind('DLG1.V.R1.BUTTON_3');
 DLG1_DlgObj._buttons['BUTTON_4'].bind('DLG1.V.R1.BUTTON_4');
+DLG1_DlgObj._listViewSettings['LISTACATEGORIAS'] = {
+	_dataSourceType: 'SQL',
+	_listFields: [
+	{
+		name: 'CategoriaID',
+		defaultValue: 'return this._controlDefaultValueForListField(\'CategoriaID\');'
+	},
+	{
+		name: 'CategoriaFoto',
+		defaultValue: 'return this._controlDefaultValueForListField(\'CategoriaFoto\');',
+		image: {
+			embedded: false,
+			type: 'JPG'
+		}
+	},
+	{
+		name: 'CategoriaNome',
+		defaultValue: 'return this._controlDefaultValueForListField(\'CategoriaNome\');'
+	},
+	{
+		name: 'EmpresaID',
+		defaultValue: 'return this._controlDefaultValueForListField(\'EmpresaID\');'
+	}
+],
+	_searchPartHas: false,
+	_dvmode: 'enter',
+	_hasDetailView: false,
+	theme: 'iOS7',
+	scroll: {
+		axis: 'both',
+		indicator: {
+			show: true,
+			h: {
+				show: true,
+				location: 'right',
+				offset: '0px',
+				left: '0px',
+				right: '0px'
+			},
+			v: {
+				show: true,
+				location: 'right',
+				offset: '0px',
+				top: '0px',
+				bottom: '0px'
+			}
+		},
+		momentum: {
+			allow: true
+		},
+		pull: {
+			y: 'auto',
+			x: 'auto'
+		}
+	},
+	layout: 'Default',
+	calculateValue: function(data) {  return '' +data.__primaryKey;},
+	listVariableName: 'LISTACATEGORIAS',
+	listVariableNameTrueCase: 'listaCategorias',
+	_hostComponentId: 'DLG1',
+	_includeCRC: false,
+	allParentLists: [],
+	__flagPersist: false,
+	onBeforeUpdateRow: function(index,data){;},
+	onUpdateRow: function(index,data){;},
+	onBeforeAddRows: function(data,info){;},
+	onAddRows: function(data,info){;},
+	onBeforeRemoveRows: function(rows){;},
+	onRemoveRows: function(rows){;},
+	onListDraw: function(data,startIndex) {
+if(A5.flags.isMobile) $e.add(this.contId+'.CONTENT','abstractdown',function(e) {$e.preventDefault(e);});},
+	_onTap: function(index) { var data = this.selectionData[0];
+DLG1_DlgObj.panelSetActive('PC_CARDAPIO');},
+	childLists: [],
+	_populateAllChildLists: function() { },
+	onClick: function() {
+DLG1_DlgObj._listSystemOnClick('LISTACATEGORIAS',this.selection[0]);},
+	layouts: {
+		Default: {
+			type: 'template',
+			item: {
+				height: '150px',
+				style: 'border-style: none; padding: 0px; margin: 0px;'
+			},
+			template: [
+				'<div style="display: table; width: 100%;">',
+				'\t<div style="display: table-cell; width: 375px; text-align: left; vertical-align: middle;">',
+				'\t\t<span id="DLG1.LISTACATEGORIAS.CATEGORIAFOTO.I.{*dataRow}"><img id="DLG1.LISTACATEGORIAS.CATEGORIAFOTO.IMG.{*dataRow}"   src="{CategoriaFoto}" /></span>',
+				'\t</div>',
+				'\t<div style="display: block; position:relative; top: 100px; left: -375px; padding: 8px; background-color: rgba(255,0,0,0.5); color:#ffffff; width: 130px; height: 20px;">',
+				'\t\t<div style="font-family:\'Lato\'; font-size: 16px; color:#ffffff;"><span id="DLG1.LISTACATEGORIAS.CATEGORIANOME.I.{*dataRow}">{CategoriaNome}</span></div>',
+				'\t</div>',
+				'</div>'			
+]
+		}
+	},
+	content: {
+		header: {
+			show: false
+		},
+		footer: {
+			show: false
+		}
+	},
+	systemEvents: {
+		onTap: function(e) {DLG1_DlgObj.panelSetActive('PC_CARDAPIO');},
+		afterAjaxCallback: function(e) {},
+		afterClientSideFilter: function(e) {},
+		beforeServerSideSort: function(e) {},
+		afterServerSideSort: function(e) {},
+		onSwipe: function(e) {},
+		onScroll: function(e) {},
+		onPullRelease: function(e) {},
+		onPull: function(e) {},
+		onPullEnd: function(e) {},
+		afterSearchComplete: function(e) {},
+		beforeSearch: function(e) {},
+		onSearchResultTooLarge: function(e) {},
+		onSearchResultTooLargeForLocalStorage: function(e) {},
+		onBeforePersistToLocalStorage: function(e) {},
+		onPersistToLocalStorage: function(e) {},
+		onRestoreFromLocalStorage: function(e) {},
+		afterRenderComplete: function(e) {},
+		beforeFetchMore: function(e) {},
+		afterFetchMore: function(e) {},
+		beforePageNavigate: function(e) {},
+		afterPageNavigate: function(e) {},
+		beforeRefreshRow: function(e) {},
+		afterRefreshRow: function(e) {},
+		afterServerSideSummaryCompute: function(e) {},
+		_afterAjaxCallback: function() {this._refreshStateMessages();}
+	},
+	_clientsideSummary: [],
+	computeClientSideSummaryValues: function(e) {},
+	_executeEvent: function(event,obj) { 
+	return DLG1_DlgObj._list_executeEvent('LISTACATEGORIAS',event,obj);
+}
+,
+	searchList: function() { 
+	if(this._searchPartStyle == 'querybyform') { 
+		if(this._dvmode != 'search') return false;
+	}
+	var obj = typeof arguments[0] != 'undefined' ? arguments[0] : {};
+	var mode = 'serverSide';
+	if(typeof obj.searchMode != 'undefined') mode = obj.searchMode;
+	mode = mode.toLowerCase();
+	if(mode.indexOf('auto') == 0) { 
+		if(this.listIsDirty()) mode = 'clientside';
+		else {
+			if(this._dataSourceType.toLowerCase() == 'sql') {
+				mode = 'serverside';
+			} else { 
+				mode = 'clientside';
+			}
+		}
+	}
+	if(this._dataSourceType.toLowerCase() == 'static') mode = 'clientside';
+	var parentList = this.parentList;
+	if(typeof parentList != 'undefined') {
+		if(parentList != '') mode = 'clientside';
+	}
+	var flagDirty = false;
+	if(this.listIsDirty) flagDirty = this.listIsDirty();
+	var flagResult = DLG1_DlgObj._list_executeEvent(this.listVariableName,'beforeSearch',{searchMode: 'search', searchWhere: mode, listIsDirty: flagDirty});
+	if(!flagResult) return false;
+	if(mode == 'serverside') {
+		this._searchListServerSide(obj);
+	} else if(mode == 'clientside') { 
+		this._searchPartSubmit_clientSideFilter();
+		var rowCount = this._rData.length;
+		DLG1_DlgObj._list_executeEvent(this.listVariableName,'afterSearchComplete',{searchMode: 'search', searchWhere: mode, recordsInQuery: rowCount});
+	}
+}
+,
+	_searchListServerSide: function() { 
+	var obj = typeof arguments[0] != 'undefined' ? arguments[0] : {};
+	var _d={};
+	var flagDirty = false;
+	if(this.listIsDirty) flagDirty = this.listIsDirty();
+	if(flagDirty) { 
+		alert('Can\'t execute server-side search because List has edits that have not yet been synchronized.');
+		return false;
+	}
+	_d.listId = this.listVariableName
+	var _data = A5.ajax.buildURLParam('__searchInfo',JSON.stringify(_d));
+	_data = _data + '&' + A5.ajax.buildURLParam('__searchOptions',JSON.stringify(obj));
+	this.filter = false;
+	DLG1_DlgObj.ajaxCallback('','','system:ListSearchPart','',_data);
+}
+,
+	clearSearchList: function() { 
+	var obj = typeof arguments[0] != 'undefined' ? arguments[0] : {};
+	var mode = 'serverSide';
+	if(typeof obj.searchMode != 'undefined') mode = obj.searchMode;
+	mode = mode.toLowerCase();
+	if(mode.indexOf('auto') == 0) { 
+		if(this.listIsDirty()) mode = 'clientside';
+		else mode = 'serverside';
+	}
+	if(this._dataSourceType.toLowerCase() == 'static') mode = 'clientside';
+	var parentList = this.parentList;
+	if(typeof parentList != 'undefined') {
+		if(parentList != '') mode = 'clientside';
+	}
+	var flagResult = DLG1_DlgObj._list_executeEvent(this.listVariableName,'beforeSearch',{searchMode: 'clear', searchWhere: mode});
+	if(!flagResult) return false;
+	if(mode == 'serverside') {
+		this._clearSearchListServerSide();
+	} else if(mode == 'clientside') { 
+		this._searchPartSubmit_clientSideFilterClear();
+		var rowCount = this._rData.length;
+		DLG1_DlgObj._list_executeEvent(this.listVariableName,'afterSearchComplete',{searchMode: 'clear', searchWhere: mode, recordsInQuery: rowCount});
+	}
+}
+,
+	_clearSearchListServerSide: function() { 
+	var _d={};
+	_d.listId = this.listVariableName
+	var _data = A5.ajax.buildURLParam('__searchInfo',JSON.stringify(_d));
+	DLG1_DlgObj.ajaxCallback('','','system:ListSearchPartClear','',_data);
+}
+,
+	_str: function(txt) {
+	txt = txt.replace("'","\\'");
+	txt = '\'' + txt + '\'';
+	return txt;
+}
+,
+	_QBF: function(txt) { 
+	var o = {};
+	o.v2 = '';
+	o.v1 = txt;
+	o.flag = false;
+	if(txt.indexOf('>=') >= 0) {
+		o.op = '>=';
+		o.v1 = txt.substr(2);
+		o.flag = true;
+	} else if (txt.indexOf('<=') >= 0 ) { 
+		o.op = '<=';
+		o.v1 = txt.substr(2);
+		o.flag = true;
+	} else if (txt.indexOf('>') >= 0 ) {
+		o.op = '>';
+		o.v1 = txt.substr(1);
+		o.flag = true;
+	} else if (txt.indexOf('<') >= 0)  { 
+		o.op = '<';
+		o.v1 = txt.substr(1);
+		o.flag = true;
+	} else if (txt.indexOf('..') == 0)  {
+		o.op = '<=';
+		o.v1 = txt.substr(2);
+		o.flag = true;
+	} else if ( txt.indexOf('..', txt.length - '..'.length) !== -1 ) { 
+		//ends with ..
+		o.op = '>=';
+		txt = txt.split('..')
+		o.v1 = txt[0];
+		o.flag = true;
+	} else if (txt.indexOf('..') > 0 ) {
+		o.op = 'between'
+		txt = txt.split('..');
+		o.v1 = txt[0];
+		o.v2 = txt[1];
+		o.flag = true;
+	}
+	return o;
+}
+,
+	_match: function(data,field,val,obj) { 
+	var flagKeyword = false;
+	if(typeof obj.flagKeyword != 'undefined') flagKeyword = obj.flagKeyword;
+	if(flagKeyword) { 
+		var obj_i = this._searchFieldOptions[field.toUpperCase()];
+		this._setSearchOps(obj,obj_i);
+	}
+	var _d = '';
+	var _v = val;
+	var flagC = false;
+	if(obj.type == 'c') {
+		flagC = true;
+		if(!obj.caseSensitive) _v = _v.toLowerCase();
+	} else { 
+		//non mumeric searches are only mode 1 or -1
+		if(obj.mode > 1) obj.mode = 1;
+		if(obj.mode < -1) obj.mode = -1;
+	}
+	var flag = false;
+	obj.usesQBFOperator = false;
+	if(obj.qbf) { 
+		_v = _v.split(',');
+	} else {
+		_v = [_v];
+	}
+	var o = {}
+	var r = '';
+	for(var i = 0; i < _v.length; i++) { 
+		if(obj.qbf) {
+			o = this._QBF(_v[i]);
+		} else {
+			o.flag = false;
+			o.v1 = _v[i];
+			o.v2 = '';
+		}
+		if(typeof data[field] != 'undefined') {
+			if(data[field] != null) { 
+				_d = data[field];
+				if(obj.type == 'n') { 
+					o.v1 = Number(o.v1);
+					o.v2 = Number(o.v2);
+					_d = Number(_d);
+				} else if (obj.type == 'l') { 
+					o.v1 = $u.s.toBool(o.v1);
+					o.v2 = $u.s.toBool(o.v2);
+					_d = $u.s.toBool(_d);
+				} else if (obj.type == 'd') { 
+					o.v1 = A5.stringToDate(o.v1,obj.dateFormat);
+					o.v2 = A5.stringToDate(o.v2,obj.dateFormat);
+					if(typeof _d == 'string') _d = A5.stringToDate(_d,obj.dateFormat);
+					if(o.v1 != '' && o.v1 != null ) o.v1 = o.v1.getTime();
+					if(o.v2 != '' && o.v2 != null ) o.v2 = o.v2.getTime();
+					if(_d != '' && _d != null ) _d = _d.getTime();
+				}
+				if(flagC) {if(!obj.caseSensitive && typeof _d == 'string') _d = _d.toLowerCase();}
+				if(o.flag) { 
+					//has qbf operators
+					if(o.op == 'between') {
+						if(flagC) {
+							if(_d.substr(0,o.v1.length) >= o.v1 && _d.substr(0,o.v2.length) <= o.v2 ) flag = true;
+						} else { 
+							if(_d >= o.v1 && _d <= o.v2 && (typeof _d == typeof o.v1)  ) flag = true;
+						}
+					} else { 
+						if(flagC) _d = _d.substr(0,o.v1.length)
+						if(o.op == '>=') if( _d >= o.v1) flag = true;
+						if(o.op == '<=') if( _d <= o.v1) flag = true;
+						if(o.op == '>') if(_d > o.v1) flag = true;
+						if(o.op == '<') if(_d < o.v1) flag = true;
+					}
+				} else { 
+					if(obj.mode == 1 || obj.mode == -1 ) {
+						if(obj.mode == 1) if(_d == o.v1) flag = true;; //match
+						if(obj.mode == -1) if(!(_d == o.v1)) flag = true;; //match
+					} else if (obj.mode == 2 || obj.mode == -2) { 
+						if(obj.mode == 2) if(_d.indexOf(o.v1) > -1) flag = true; //contains
+						if(obj.mode == -2) if(!(_d.indexOf(o.v1) > -1)) flag = true;
+					} else if (obj.mode == 3 || obj.mode == -3) { 
+						if(obj.mode == 3) if(_d.indexOf(o.v1) == 0) flag = true; //starts with
+						if(obj.mode == -3) if(!(_d.indexOf(o.v1) == 0)) flag = true; //starts with
+					}
+				}
+			}
+		}
+	}
+	return flag;
+}
+,
+	_setSearchOps: function(obj,obj_i) { 
+	obj.mode = obj_i.option;
+	obj.qbf = obj_i.qbf;
+	obj.type = obj_i.type;
+	//obj.treatAs = obj_i.treatAs;
+}
+,
+	_searchPartSubmit_clientSideFilter: function() { 
+	if(!this._searchPartHas) return true;
+	//_searchPartStyle: 'individualcontrols'
+	if(this._searchPartStyle == 'singlekeywordcontrol') { 
+		var searchFor = DLG1_DlgObj.getValue(this._keywordSearchControl);
+		var arr = this._keywordSearchFields;
+		var expn = [];
+		var expn_i = '';
+		var obj = {};
+		//obj.caseSensitive = false;
+		//obj.qbf = true;
+		//obj.mode = 1;
+		obj.flagKeyword = true;
+		var objStr = JSON.stringify(obj)
+		for(var i = 0; i < arr.length; i++) { 
+			expn_i = 'this._match(data,' +this._str(arr[i]) + ',' + this._str(searchFor) + ','+objStr+')';
+			expn.push(expn_i);
+		}
+		expn = expn.join('||');
+		//alert(expn);
+	} else if ( this._searchPartStyle == 'individualcontrols' || this._searchPartStyle == 'querybyform'  ) { 
+		var map = this._searchPart.fieldMap;
+		var val = '';
+		var expn = [];
+		var expn_i = '';
+		var obj = {};
+		obj.caseSensitive = false;
+		//obj.qbf = true;
+		//obj.mode = 2;
+		//var objStr = JSON.stringify(obj)
+		var ac = [];
+		var aco = {};
+		if(this._searchPartStyle == 'individualcontrols') {
+			for(var i = 0; i < map.length; i++) { 
+				val = DLG1_DlgObj.getValue(map[i].control);
+				if(val != '') {
+					obj_i = this._searchFieldOptions[map[i].field.toUpperCase()];
+					this._setSearchOps(obj,obj_i);
+					expn_i = 'this._match(data,' +this._str(map[i].field) + ',' + this._str(val) + ','+JSON.stringify(obj)+')';
+					expn.push(expn_i);
+				}
+			}
+		} else if (this._searchPartStyle == 'querybyform' ) { 
+			var controlName = '';
+			for(var i = 0; i < this._listFields.length; i++) { 
+				controlName = this._getUXDetailViewControlName(this._listFields[i].name);
+				if(controlName != '') {
+					val = DLG1_DlgObj.getValue(controlName);
+					if(val != '') {
+						obj_i = this._searchFieldOptions[map[i].field.toUpperCase()];
+						this._setSearchOps(obj,obj_i);
+						expn_i = 'this._match(data,' +this._str(this._listFields[i].name) + ',' + this._str(val) + ','+JSON.stringify(obj)+')';
+						expn.push(expn_i);
+						aco.control = controlName;
+						aco.value = val;
+						ac.push(aco);
+					}
+				}
+			}
+			this.__queryByFormValues = ac;
+			DLG1_DlgObj._setDVClean(this);
+		}	
+		expn = expn.join(' && ');
+	} 
+	//alert(expn);
+	if (this._showSearchDebugInfo) {
+		var ele = $('DLG1.V.R1.' + this._searchDebugPH);
+		if(ele) ele.innerHTML = expn;
+	}
+	//user did not fill in any search fields
+	if(expn == '') return true;
+	var fnTxt = 'if(' + expn + ') {return true;} else { return false;}'
+	var searchFunction = new Function('data',fnTxt);
+	this.setFilter(searchFunction);
+	if(this._rData.length > 0) this.setValue(0);
+}
+,
+	_searchPartSubmit_clientSideFilterClear: function() { 
+if(!this._searchPartHas) return true;
+	this.setFilter(false);
+	var map = this._searchPart.fieldMap;
+	var val = '';
+	var od = DLG1_DlgObj.originalValues[0];
+	for(var i = 0; i < map.length; i++) {
+		var val = od[map[i].control.toUpperCase()];
+		if(typeof val != 'undefined') DLG1_DlgObj.setValue(map[i].control,val,false);
+	}
+	this.setFilter(false);
+	delete this.__queryByFormValues;
+	DLG1_DlgObj._setDVClean(this);
+	if(this._data.length > 0) this.setValue(0);
+	if (this._showSearchDebugInfo) {
+		var ele = $('DLG1.V.R1.' + this._searchDebugPH);
+		if(ele) ele.innerHTML = '';
+	}
+}
+,
+	detailViewIsDirty: function() { return false; },
+	populateUXControls: function() { return true; },
+	listIsDirty: function() { return false; },
+	lookupValue: function(key,name,keyValue) {	var _d = this._data;
+	var indx = A5FindPropInArray(_d,key,keyValue);
+	var rv = '';
+	if(indx >=0) {
+		if(name == '__rowData__') return _d[indx];
+		rv =  _d[indx][name];
+	} else {
+		//null out all properties in row
+		var _d2 = {};
+		if(typeof _d[0] == 'undefined') { return {}} ;
+		for(var n in _d[0]) {
+			_d2[n] = '&nbsp;';
+		}
+		rv = _d2;
+	}
+	return rv;
+}
+,
+	allowNullSelection: false,
+	refreshChildLists: function() {DLG1_DlgObj._listRefreshCascadingLists('LISTACATEGORIAS'); },
+	rowExpander: function(rowNumber) { 
+	var mode = typeof arguments[2] != 'undefined' ? arguments[2] : 'toggle';
+	if(typeof rowNumber == 'undefined' || rowNumber == '' ) {
+		rowNumber = this.selection[0];
+		if(typeof rowNumber == 'undefined') return false;
+	}
+	var animObj = typeof arguments[1] != 'undefined' ? arguments[1] : {};
+	var ele = $(this._hostComponentId + '.' + this.listVariableName + '.ROWEXPANDER.' + rowNumber);
+	if(ele) {
+		if(mode == 'toggle') A5.u.element.toggle(ele,animObj);
+		if(mode == 'show') A5.u.element.show(ele,animObj);
+		if(mode == 'hide') A5.u.element.hide(ele,animObj);
+	}
+}
+,
+	afterClientSideSummaryCompute: function(csSummary) { },
+	selectCurrentLayout: function(name) { 
+var pl = this.layouts[name];
+if(typeof pl == 'undefined') return false;
+this.setLayout(name);
+if(pl.type == 'column') {
+	this.columnLayout.header.show = this.layouts[name].showColumnTitles; 
+	this.refresh();
+}
+},
+	onFilter: function() { 	var e = {}; 
+	e.rowCount = this._values.length;  
+	var ele = $('DLG1.__listId__.RECORDCOUNT'); 
+	if(ele) {ele.innerHTML = e.rowCount;}; 
+	if(this.persistToStorage) { this.persistToStorage({});} 
+	(function(e) {   })(e);
+}
+,
+	serverSideSort: function(column) {
+var e = {};
+e.column = column;
+var result = this.systemEvents.beforeServerSideSort(e);
+if(result == false) return false;
+var obj = {};
+obj.cmd = 'sort';
+obj.column = column;
+obj.layoutName = this.layout;
+obj.listState = this._state;
+var data = '_listId=LISTACATEGORIAS&' + A5.ajax.buildURLParam('_cmdObj',$u.o.toJSON(obj));
+DLG1_DlgObj.ajaxCallback('','','system:listServerSideSort','',data);
+},
+	filterListClientSide: function(searchFor) {
+//var result = this.systemEvents.beforeClientSideFilter();
+//if(result == false) return false;
+if(searchFor != '') {
+	//fixes bug in Chrome when searching on dates strings that use forward slashes
+	searchFor = searchFor.replace(/\//g,'\\/');
+	this.setFilter({CategoriaID: RegExp('' + searchFor,'i'), CategoriaNome: RegExp('' + searchFor,'i'), EmpresaID: RegExp('' + searchFor,'i')});
+} else this.setFilter(false);
+var rowCount = this._values.length;
+//var e = {};
+//e.rowCount = rowCount;
+//this.systemEvents.afterClientSideFilter(e);
+var ele = $('DLG1.listaCategorias.RECORDCOUNT');
+if(ele) ele.innerHTML = rowCount;
+}
+,
+	scrollToClosestValue: function(val) { 	
+	if(typeof val != 'string') val = val.join('');
+	var flagCI = typeof arguments[1] != 'undefined' ? arguments[1] : false;
+	var pos = typeof arguments[2] != 'undefined' ? arguments[2] : 'top';
+	var anim = typeof arguments[3] != 'undefined' ? arguments[3] : {}
+	var _d = this._rData;
+	var len = val.length;
+	var _d2;
+	var i2 = -1;
+	if(flagCI) val = val.toLowerCase();
+	for(var i = 0 ; i < _d.length; i++) {
+		i2 = i;
+		_d2 = String(_d[i]['*value']);
+		_d2 = _d2.substr(0,len);
+		if(flagCI) _d2 = _d2.toLowerCase();
+		if(val <= _d2){
+			 break;
+		}
+	}
+	if(i2 > -1) { 
+		this.scrollToItem(i2,{mode: pos, animation: anim});
+	}
+}
+,
+	_refreshStateMessages: function() {
+	var ele = '';
+	ele = $('DLG1.LISTACATEGORIAS.PAGENUMBER');
+	if(ele) ele.innerHTML = this._state.page;
+	ele = $('DLG1.LISTACATEGORIAS.PAGECOUNT');
+	if(ele) ele.innerHTML = this._state.pageCount;
+	ele = $('DLG1.LISTACATEGORIAS.PAGECOUNT.PAGESELECTOR');
+	if(ele) ele.innerHTML = this._state.pageCount;	
+	ele = $('DLG1.LISTACATEGORIAS.LISTSTATE');
+	if(ele) {
+		var listState = $u.o.toJSON(this._state);
+		ele.innerHTML = listState;
+	}
+	//navigation buttons			
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_NEXT.LISTACATEGORIAS'];
+	if(ele) {
+		if(this._state.page == this._state.pageCount) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_LAST.LISTACATEGORIAS'];
+	if(ele) {
+		if(this._state.page == this._state.pageCount) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_FIRST.LISTACATEGORIAS'];
+	if(ele) {
+		if(this._state.page == 1 ) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_PREV.LISTACATEGORIAS'];
+	if(ele) {
+		if(this._state.page == 1 ) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = $('DLG1.V.R1.A5SYSTEM_LIST_PAGESELECTOR_LISTACATEGORIAS');
+	if(ele) {
+		var data = this._recordNavigatorLinks;
+		if(data) A5.form.populateSelect(ele,this._state.page,data,true);
+	}
+}
+,
+	_getRoute: function() { 
+	var obj  = typeof arguments[1] != 'undefined' ? arguments[1] : [];
+	var mode = typeof arguments[0] != 'undefined' ? arguments[0] : 'rowNumber'; //
+	if(typeof this.selection[0] == 'undefined') return false;
+	if(typeof this.getData(this.selection[0]) == 'undefined') return false;
+	if(mode == 'rowNumber') obj.push({list: this.listVariableName, row: this.getData(this.selection[0])['*key']});
+	else obj.push({list: this.listVariableName, row: this.getData(this.selection[0]).__primaryKey});
+	for(var i = 0; i < this.childLists.length; i++) { 
+		var lname = this.childLists[i];
+		var lObj = window[this._hostComponentId + '_DlgObj'].getControl(lname);
+		lObj._getRoute(mode,obj);
+	}
+	return obj;
+}
+,
+	_setRoute: function(route) { 
+	if(typeof route == 'undefined') { 
+		route = this.__currentRoute;
+		if(typeof route == 'undefined') return false;
+	}
+	var lObj = '';
+	var row = '';
+	for(var i = 0; i < route.length; i++) {
+		lObj = window[this._hostComponentId + '_DlgObj'].getControl(route[i].list);
+		row = route[i].row;
+		var flag = typeof this._restoringList != 'undefined' ? !this._restoringList : true;
+		if(typeof row != 'undefined') {
+			var rowFixed = '';
+			rowFixed = lObj._dataMap.indexOf(route[i].row);
+			lObj.setValue(rowFixed,flag);
+			if(this._clearServerSideErrors) this._clearServerSideErrors();
+			if(this._showServerSideErrors) this._showServerSideErrors();
+			if(this._showWriteConflictErrors) this._showWriteConflictErrors();
+		}
+	}
+}
+,
+	_useServerSideSyncLog: false
+};
 DLG1_DlgObj._listViewSettings['LISTAITENS'] = {
 	_dataSourceType: 'SQL',
 	_listFields: [
@@ -2451,6 +3159,10 @@ DLG1_DlgObj._listViewSettings['LISTAITENS'] = {
 	{
 		name: 'CategoriaID',
 		defaultValue: 'return this._controlDefaultValueForListField(\'CategoriaID\');'
+	},
+	{
+		name: 'ItemCategoriaID',
+		defaultValue: 'return this._controlDefaultValueForListField(\'ItemCategoriaID\');'
 	}
 ],
 	_searchPartHas: false,
@@ -2994,7 +3706,7 @@ DLG1_DlgObj.ajaxCallback('','','system:listServerSideSort','',data);
 if(searchFor != '') {
 	//fixes bug in Chrome when searching on dates strings that use forward slashes
 	searchFor = searchFor.replace(/\//g,'\\/');
-	this.setFilter({ItemID: RegExp('' + searchFor,'i'), ItemNome: RegExp('' + searchFor,'i'), ItemDescricao: RegExp('' + searchFor,'i'), ItemPreco: RegExp('' + searchFor,'i'), ItemPrecoPromocao: RegExp('' + searchFor,'i'), ItemEstaEmPromocao: RegExp('' + searchFor,'i'), ItemEstaAtivo: RegExp('' + searchFor,'i'), FotoDescricao: RegExp('' + searchFor,'i'), FotoPrincipal: RegExp('' + searchFor,'i'), CategoriaNome: RegExp('' + searchFor,'i'), CategoriaID: RegExp('' + searchFor,'i')});
+	this.setFilter({ItemID: RegExp('' + searchFor,'i'), ItemNome: RegExp('' + searchFor,'i'), ItemDescricao: RegExp('' + searchFor,'i'), ItemPreco: RegExp('' + searchFor,'i'), ItemPrecoPromocao: RegExp('' + searchFor,'i'), ItemEstaEmPromocao: RegExp('' + searchFor,'i'), ItemEstaAtivo: RegExp('' + searchFor,'i'), FotoDescricao: RegExp('' + searchFor,'i'), FotoPrincipal: RegExp('' + searchFor,'i'), CategoriaNome: RegExp('' + searchFor,'i'), CategoriaID: RegExp('' + searchFor,'i'), ItemCategoriaID: RegExp('' + searchFor,'i')});
 } else this.setFilter(false);
 var rowCount = this._values.length;
 //var e = {};
@@ -5400,14 +6112,15 @@ if(ele) ele.innerHTML = rowCount;
 ,
 	_useServerSideSyncLog: false
 };
+DLG1_DlgObj._listViewData['LISTACATEGORIAS'] = []; 
 DLG1_DlgObj._listViewData['LISTAITENS'] = []; 
 DLG1_DlgObj._listViewData['LISTACARRINHOITEM'] = []; 
 DLG1_DlgObj._listViewData['LISTARESERVAS'] = A5DataArrayToObject(['ReservaID','ClienteID','EmpresaID','ReservaPessoas','ReservaConfirmada','ReservaDataHora','__primaryKey'],[ [ "1" , "(51)9155-2004" , "1" , "5" , "C" , "01/03/2015 08:15:00 00 pm" , "1" ]
 , [ "2" , "(51)9155-2004" , "1" , "8" , "E" , "27/02/2015 07:30:00 00 pm" , "2" ]
  ]); 
-DLG1_DlgObj._listViewData['MENUPRINCIPAL'] = A5DataArrayToObject(['icone','opcao','painel'],[['','Home','PL_INICIO'],['','Card&aacutepio','PC_CARDAPIO'],['','Carrinho','PC_CARRINHO_ITEM'],['','Endere&ccedilo','PC_ENDERECO'],['','Reservas','PC_RESERVAS'],['','Mensagens','PC_MENSAGENS'],['','Promo&ccedil&otildees','PC_PROMOCAO'],['','Meus Dados','PC_DADOS']]);
+DLG1_DlgObj._listViewData['MENUPRINCIPAL'] = A5DataArrayToObject(['icone','opcao','painel'],[['','Home','PL_INICIO'],['','Card&aacutepio','PC_CATEGORIAS'],['','Carrinho','PC_CARRINHO_ITEM'],['','Endere&ccedilo','PC_ENDERECO'],['','Reservas','PC_RESERVAS'],['','Mensagens','PC_MENSAGENS'],['','Promo&ccedil&otildees','PC_PROMOCAO'],['','Meus Dados','PC_DADOS']]);
 ;
-DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '26ae281d-5292-44f2-8558-736db81a9b54', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\n', 	__dtfmt: 'dd/MM/yyyy' });
+DLG1_DlgObj.setStateInfo({ 	__dialogGuid: 'c930ac4c-bda3-4de0-888b-44e3ca81917a', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
 DLG1_DlgObj._spinListData['HORA'] = [
 {html: '&nbsp;', value: ''},
 {html: '08', value: '08'},
@@ -5435,6 +6148,7 @@ DLG1_DlgObj._spinListData['MINUTOS'] = [
 ];
 DLG1_DlgObj._mapSettings['MINIMAPA'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: 'ROUTE_PANEL_ID'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }}; 
 DLG1_DlgObj._mapSettings['MAPROUTE'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Metric',optimizeOrder: false,directionsPanel: 'Route'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }};
+DLG1_DlgObj._controls['LISTACATEGORIAS'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LISTACATEGORIAS'], settings: DLG1_DlgObj._listViewSettings['LISTACATEGORIAS'] }
 DLG1_DlgObj._controls['LISTAITENS'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LISTAITENS'], settings: DLG1_DlgObj._listViewSettings['LISTAITENS'] }
 DLG1_DlgObj._controls['LISTACARRINHOITEM'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LISTACARRINHOITEM'], settings: DLG1_DlgObj._listViewSettings['LISTACARRINHOITEM'] }
 DLG1_DlgObj._controls['LISTARESERVAS'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LISTARESERVAS'], settings: DLG1_DlgObj._listViewSettings['LISTARESERVAS'] }
@@ -5581,6 +6295,15 @@ DLG1_DlgObj._functions._showContainerWindow_WDW_NOVARESERVA = function(objEle) {
 	DLG1_DlgObj._openWindows['WDW_NOVARESERVA'] = currWindow;
 	currWindow.show('20','20');
 	}
+var path = DLG1_PanelObj._panelPath['PC_CATEGORIAS'];
+if(typeof path != 'undefined') {
+	var panel = DLG1_PanelObj.getPanel(path);
+	var id = panel.src.getPanelId('body');
+} else {
+	var id = DLG1_PanelObj.getPanelId('body');
+}
+DLG1_DlgObj._listViewSettings['LISTACATEGORIAS'].containerId = id;
+$(id).innerHTML = '';
 var path = DLG1_PanelObj._panelPath['PC_CARDAPIO'];
 if(typeof path != 'undefined') {
 	var panel = DLG1_PanelObj.getPanel(path);
@@ -8105,7 +8828,7 @@ $u.o.assign(A5.ListBox.prototype,
 }
 )
 //End section - Add methods to List prototype
-DLG1_DlgObj._listControls = ['listaItens','listaCarrinhoItem','listaReservas','menuPrincipal']
+DLG1_DlgObj._listControls = ['listaCategorias','listaItens','listaCarrinhoItem','listaReservas','menuPrincipal']
 DLG1_DlgObj._localStorageSettings = {namespace: 'ALPHA_545f3d53aeae4c22a2875f85b80ae3c3',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingMode: 'Browser',workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},minify: false}
 
 
@@ -8146,7 +8869,7 @@ DLG1_DlgObj.panelSetActive('PC_MAP_ROUTE',true);
 
 
 $e.add('DLG1.V.R1.BTN_CARDAPIO',A5.d.evnts.click,function(e) {
-DLG1_DlgObj.panelSetActive('PC_CARDAPIO',true);
+DLG1_DlgObj.panelSetActive('PC_CATEGORIAS',true);
 },this,false,'DLG1.V.R1.BTN_CARDAPIO');
 
 $e.add('DLG1.V.R1.BTN_ENDER',A5.d.evnts.click,function(e) {
@@ -8180,6 +8903,9 @@ else
 	showTitle();
 	}
 },this,false,'DLG1.V.R1.BTN_MESSAGE');
+
+
+
 
 
 
@@ -8406,6 +9132,36 @@ DLG1_DlgObj._functions.calcOrientation();
 
 
 
+var listObj = DLG1_DlgObj.getControl('LISTACATEGORIAS');
+if(listObj) listObj._state.recordCount = 0;
+if(listObj) listObj._state.recordCountFormatted = '0';
+if(listObj) listObj._state.lastBreakValue = '<None>';
+if(listObj) listObj._state.pageCount = 0;
+if(listObj) listObj._state.pageSize = 20;
+if(listObj) var ele = $('DLG1.listaCategorias.RECORDCOUNT'); if(ele) ele.innerHTML = listObj._state.recordCountFormatted;
+if(listObj) listObj._state.paginated = false;
+
+if(listObj) listObj._state.filter = '';
+if(listObj) listObj._state.order = '';
+if(listObj) listObj._state.filterParameters = '';
+if(listObj) listObj._state.whereClause = '';
+if(listObj) listObj._state.whereParameters = '';
+		
+		var flagPersist = false;
+		if(typeof listObj._flagPersistDataOK != 'undefined') { 
+			if(listObj._flagPersistDataOK) { 
+				var data = listObj._data;
+				listObj.persistToStorage({mode:'populate', data: data});
+			}
+		}
+		
+		
+;
+DLG1_DlgObj._list_executeEvent('LISTACATEGORIAS','afterRenderComplete',{});
+
+if(listObj._refreshStateMessages) listObj._refreshStateMessages();
+
+
 var listObj = DLG1_DlgObj.getControl('LISTAITENS');
 if(listObj) listObj._state.recordCount = 0;
 if(listObj) listObj._state.recordCountFormatted = '0';
@@ -8454,7 +9210,7 @@ if(listObj) listObj._state.filter = '';
 if(listObj) listObj._state.order = '';
 if(listObj) listObj._state.filterParameters = '';
 if(listObj) listObj._state.whereClause = 'carrinhoID = :carrinhoAtual';
-if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004|||C|usuarioatual\n';
+if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004|||C|usuarioatual\n0|||N|categoriaatual\n';
 		
 		var flagPersist = false;
 		if(typeof listObj._flagPersistDataOK != 'undefined') { 
@@ -8545,7 +9301,7 @@ if(listObj) listObj._state.filter = '';
 if(listObj) listObj._state.order = 'ReservaDataHora DESC';
 if(listObj) listObj._state.filterParameters = '';
 if(listObj) listObj._state.whereClause = 'ClienteID = :usuarioAtual';
-if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004|||C|usuarioatual\n';
+if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004|||C|usuarioatual\n0|||N|categoriaatual\n';
 		
 		var flagPersist = false;
 		if(typeof listObj._flagPersistDataOK != 'undefined') { 
@@ -8576,7 +9332,7 @@ if(listObj) listObj._state.filter = '';
 if(listObj) listObj._state.order = 'ReservaDataHora DESC';
 if(listObj) listObj._state.filterParameters = '';
 if(listObj) listObj._state.whereClause = 'ClienteID = :usuarioAtual';
-if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004|||C|usuarioatual\n';
+if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004|||C|usuarioatual\n0|||N|categoriaatual\n';
 		
 		var flagPersist = false;
 		if(typeof listObj._flagPersistDataOK != 'undefined') { 
@@ -8625,8 +9381,20 @@ if(listObj._refreshStateMessages) listObj._refreshStateMessages();
 
 
 
+var obj = DLG1_DlgObj.getControl('LISTACATEGORIAS');
+obj._hasBeenRendered = false;
 var obj = DLG1_DlgObj.getControl('LISTAITENS');
 obj._hasBeenRendered = false;
+
+
+var lObj = DLG1_DlgObj.getControl('LISTACATEGORIAS');
+$e.add(lObj.contId,'abstracttap',function(e) { 
+	var lObj = DLG1_DlgObj.getControl('LISTACATEGORIAS');
+	var index = lObj.indexFromPoint(e.abstractData.startX,e.abstractData.startY);
+	//only fire the onTap if user clicked on a real row;
+	if(index > -1) lObj._onTap(index);
+});
+
 
 
 
