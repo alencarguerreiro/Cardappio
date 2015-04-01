@@ -295,7 +295,7 @@ border: none;
 padding: 7px 15px 7px 15px;
 font-weight: bold;
 font-size:14px;
-width: 180px;
+width: 160px;
 height: 40px;
 }
 .btnDescartarReserva {
@@ -306,7 +306,7 @@ border: none;
 padding: 7px 15px 7px 15px;
 font-weight: bold;
 font-size:14px;
-width: 180px;
+width: 160px;
 height: 40px;
 }
 .btnReservaConfirmada {
@@ -747,7 +747,7 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 
 
 	<div 	id="DLG1.V.R1.WDW_NOVARESERVA"   
-			class=""  style="margin-top: 5%; margin-left: 5%; margin-right: 5%; ; display: none;"  >
+			class=""  style="; display: none;"  >
 
 	<div 	id="DLG1.V.R1.CONTAINER_12"   
 			class="A5CWLayout "  style="width: 220px; "  >
@@ -764,10 +764,10 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 	<button type="button" id="DLG1.V.R1.BUTTON_2"    ></button>
 </div>
 	
-<div class="A5CWLayout" style="width: 100px" >
+<div class="A5CWLayout" style="width: 80px" >
 	<label id="DLG1.LBL.R1.PESSOAS" for="DLG1.V.R1.PESSOAS" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Pessoas</label>
 
-	<span	id="DLG1.V.R1.PESSOAS" class="iOS7GridData" style="text-align: center; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;; display:inline-block" title=""    ></span>
+	<span	id="DLG1.V.R1.PESSOAS" class="iOS7GridData" style="text-align: center; width: 100%; height: 43px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;; display:inline-block" title=""    ></span>
 
 </div>
 	
@@ -1676,8 +1676,6 @@ var ele=$("DLG1.V.R1.CHATINPUT");
 ele.style.width = (width-50)+'px';
 var ele=$("DLG1.V.R1.CT_BUTTONS");
 ele.style.width = (width-40)+'px';
-var ele=$("DLG1.V.R1.CT_RESERVAS");
-ele.style.width = width+'px';
 showEndereco();
 		}
 	});
@@ -2017,7 +2015,7 @@ DLG1_DlgObj.setValue('DEVICELATITUDE',DLG1_DlgObj.geolocation.latitude );
 DLG1_DlgObj.setValue('DEVICELONGITUDE',DLG1_DlgObj.geolocation.longitude );
 showMapRoute();}
 DLG1_DlgObj.setStateInfo({
-	__dialogGuid: '71db8156-6df4-4c99-9578-638b2259e727',
+	__dialogGuid: '5e3ec2ff-f2f3-4460-981b-3272c422cb52',
 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n',
 	__dtfmt: 'dd/MM/yyyy',
 	__tfmt: '',
@@ -6075,7 +6073,7 @@ DLG1_DlgObj._listViewData['LISTARESERVAS'] = A5DataArrayToObject(['ReservaID','C
  ]); 
 DLG1_DlgObj._listViewData['MENUPRINCIPAL'] = A5DataArrayToObject(['icone','opcao','painel'],[['','Home','PL_INICIO'],['','Card&aacutepio','PC_CATEGORIAS'],['','Carrinho','PC_CARRINHO_ITEM'],['','Endere&ccedilo','PC_ENDERECO'],['','Reservas','PC_RESERVAS'],['','Mensagens','PC_MENSAGENS'],['','Promo&ccedil&otildees','PC_PROMOCAO'],['','Meus Dados','PC_DADOS']]);
 ;
-DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '71db8156-6df4-4c99-9578-638b2259e727', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
+DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '5e3ec2ff-f2f3-4460-981b-3272c422cb52', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
 DLG1_DlgObj._mapSettings['MINIMAPA'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: 'ROUTE_PANEL_ID'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }}; 
 DLG1_DlgObj._mapSettings['MAPROUTE'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Metric',optimizeOrder: false,directionsPanel: 'Route'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }};
 DLG1_DlgObj._controls['LISTACATEGORIAS'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LISTACATEGORIAS'], settings: DLG1_DlgObj._listViewSettings['LISTACATEGORIAS'] }
