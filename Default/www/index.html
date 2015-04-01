@@ -295,7 +295,7 @@ border: none;
 padding: 7px 15px 7px 15px;
 font-weight: bold;
 font-size:14px;
-width: 188px;
+width: 180px;
 height: 40px;
 }
 .btnDescartarReserva {
@@ -306,7 +306,7 @@ border: none;
 padding: 7px 15px 7px 15px;
 font-weight: bold;
 font-size:14px;
-width: 188px;
+width: 180px;
 height: 40px;
 }
 .btnReservaConfirmada {
@@ -362,9 +362,6 @@ height: 40px;
 font-family:'Open Sans Condensed';
 }
 </style>
-
-
-
 
 
 
@@ -674,8 +671,6 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 <input type="hidden" id="DLG1.V.R1.LISTACARRINHOITEM" name="V.R1.LISTACARRINHOITEM" />
 <input type="hidden" id="DLG1.V.R1.LISTARESERVAS" name="V.R1.LISTARESERVAS" />
 <input type="hidden" id="DLG1.V.R1.MENUPRINCIPAL" name="V.R1.MENUPRINCIPAL" />
-<input id="DLG1.V.R1.HORA" name="V.R1.HORA" type="hidden"/>
-<input id="DLG1.V.R1.MINUTOS" name="V.R1.MINUTOS" type="hidden"/>
 	<div 	id="DLG1.V.R1.ITENS_FOOTER"   
 			class=""  style="color: #ffcc00; background-color: #000000; border-style: none; width: 100%; height: 0px; "  >
 <div style="display: table; margin: auto;">
@@ -755,33 +750,13 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 			class=""  style="margin-top: 5%; margin-left: 5%; margin-right: 5%; ; display: none;"  >
 
 	<div 	id="DLG1.V.R1.CONTAINER_12"   
-			class="A5CWLayout "  style="width: 90%; "  >
+			class="A5CWLayout "  style="width: 220px; "  >
 <div style="display: table; margin: auto;">
 
 <div class="A5CWLayout" style="width: 100%" >
 	<label id="DLG1.LBL.R1.DATARESERVA" for="DLG1.V.R1.DATARESERVA" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Reserva para:</label>
 
 	<input	type="datetime-local" id="DLG1.V.R1.DATARESERVA" title=""  autocapitalize="off"  autocorrect="off"     class="iOS7Edit" style="text-align: center; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"    name="V.R1.DATARESERVA"    value=""  'type="datetime"'  />
-
-</div><br style="clear:both; " />
-	
-<div class="A5CWLayout" style="width: 83px" >
-	<label id="DLG1.LBL.R1.HORA" for="DLG1.V.R1.HORA" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Hora</label>
-
-	<input id="DLG1.V.R1.HORA" name="V.R1.HORA" type="hidden"/>
-<div id="DLG1.V.R1.HORA.CONTROL"  style="width: 83px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; "></div>
-
-</div>
-	
-<div class="A5CWLayout" style="width: " >
-	<div id="DLG1.V.R1.STATICTEXT_1" title=""  class="" style="margin-top: 60px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   ><strong><font  size=5>&#0160;:</font></strong></div>
-</div>
-	
-<div class="A5CWLayout" style="width: 83px" >
-	<label id="DLG1.LBL.R1.MINUTOS" for="DLG1.V.R1.MINUTOS" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Minutos</label>
-
-	<input id="DLG1.V.R1.MINUTOS" name="V.R1.MINUTOS" type="hidden"/>
-<div id="DLG1.V.R1.MINUTOS.CONTROL"  style="width: 83px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; "></div>
 
 </div><br style="clear:both; " />
 	
@@ -792,7 +767,7 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 <div class="A5CWLayout" style="width: 100px" >
 	<label id="DLG1.LBL.R1.PESSOAS" for="DLG1.V.R1.PESSOAS" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Pessoas</label>
 
-	<span	id="DLG1.V.R1.PESSOAS" class="iOS7GridData" style="text-align: center; width: 100%; height: 40px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;; display:inline-block" title=""    ></span>
+	<span	id="DLG1.V.R1.PESSOAS" class="iOS7GridData" style="text-align: center; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;; display:inline-block" title=""    ></span>
 
 </div>
 	
@@ -1526,12 +1501,10 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	_embeddedMode: false,
 	_livePreviewInBuilder: false,
 	componentGUID: '545f3d53-aeae-4c22-a287-5f85b80ae3c3',
-	columnInfo: {'LISTACATEGORIAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTAITENS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTETELEFONE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTENOME': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTACARRINHOITEM': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID_1': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'ITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMQTD': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMPRECOUNIT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'EMPRESAID': {info: {controlType: 'TextBox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAFANTASIA': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDENDERECO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDERECONUMERO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDNUMERO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCOMPLEMENTO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDBAIRRO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCIDADE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDUF': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCEP': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESATELEFONE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAPAIS': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELATITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELONGITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINIMAPA': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MAPROUTE': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CHATINPUT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTARESERVAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MENUPRINCIPAL': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'USUARIOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'SENHA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LOGGEDIN': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DATARESERVA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'D'  },'HORA': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINUTOS': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'PESSOAS': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RESERVADATAHORA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},
+	columnInfo: {'LISTACATEGORIAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTAITENS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTETELEFONE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CLIENTENOME': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTACARRINHOITEM': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CARRINHOID_1': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'ITEMID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMQTD': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'CARRITEMPRECOUNIT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'N'  },'EMPRESAID': {info: {controlType: 'TextBox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAFANTASIA': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDENDERECO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDERECONUMERO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDNUMERO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCOMPLEMENTO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDBAIRRO': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCIDADE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDUF': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAENDCEP': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESATELEFONE': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMPRESAPAIS': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELATITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DEVICELONGITUDE': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MINIMAPA': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MAPROUTE': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'CHATINPUT': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LISTARESERVAS': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'MENUPRINCIPAL': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'USUARIOID': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'SENHA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LOGGEDIN': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'DATARESERVA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'D'  },'PESSOAS': {info: {controlType: 'Label'}, hiddenVal: false, type: 'label,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RESERVADATAHORA': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},
 	originalValues: [{
 	'EMPRESAID': '1',
 	'DATARESERVA': '02/04/2015',
-	'HORA': '17',
-	'MINUTOS': '00',
 	'LISTACATEGORIAS': '',
 	'LISTAITENS': '',
 	'CARRINHOID': '',
@@ -1570,8 +1543,6 @@ var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
 	defaultValues: {
 	EMPRESAID: '1',
 	DATARESERVA: '02/04/2015',
-	HORA: '17',
-	MINUTOS: '00',
 	LISTACATEGORIAS: '',
 	LISTAITENS: '',
 	CARRINHOID: '',
@@ -2046,7 +2017,7 @@ DLG1_DlgObj.setValue('DEVICELATITUDE',DLG1_DlgObj.geolocation.latitude );
 DLG1_DlgObj.setValue('DEVICELONGITUDE',DLG1_DlgObj.geolocation.longitude );
 showMapRoute();}
 DLG1_DlgObj.setStateInfo({
-	__dialogGuid: '461a0aa4-0952-4bf7-bec8-31f6814c06f4',
+	__dialogGuid: '71db8156-6df4-4c99-9578-638b2259e727',
 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n',
 	__dtfmt: 'dd/MM/yyyy',
 	__tfmt: '',
@@ -6104,32 +6075,7 @@ DLG1_DlgObj._listViewData['LISTARESERVAS'] = A5DataArrayToObject(['ReservaID','C
  ]); 
 DLG1_DlgObj._listViewData['MENUPRINCIPAL'] = A5DataArrayToObject(['icone','opcao','painel'],[['','Home','PL_INICIO'],['','Card&aacutepio','PC_CATEGORIAS'],['','Carrinho','PC_CARRINHO_ITEM'],['','Endere&ccedilo','PC_ENDERECO'],['','Reservas','PC_RESERVAS'],['','Mensagens','PC_MENSAGENS'],['','Promo&ccedil&otildees','PC_PROMOCAO'],['','Meus Dados','PC_DADOS']]);
 ;
-DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '461a0aa4-0952-4bf7-bec8-31f6814c06f4', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
-DLG1_DlgObj._spinListData['HORA'] = [
-{html: '&nbsp;', value: ''},
-{html: '08', value: '08'},
-{html: '09', value: '09'},
-{html: '10', value: '10'},
-{html: '11', value: '11'},
-{html: '12', value: '12'},
-{html: '13', value: '13'},
-{html: '14', value: '14'},
-{html: '15', value: '15'},
-{html: '16', value: '16'},
-{html: '17', value: '17'},
-{html: '18', value: '18'},
-{html: '19', value: '19'},
-{html: '20', value: '20'},
-{html: '21', value: '21'},
-{html: '22', value: '22'},
-{html: '23', value: '23'}
-];
-DLG1_DlgObj._spinListData['MINUTOS'] = [
-{html: '00', value: '00'},
-{html: '15', value: '15'},
-{html: '30', value: '30'},
-{html: '45', value: '45'}
-];
+DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '71db8156-6df4-4c99-9578-638b2259e727', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
 DLG1_DlgObj._mapSettings['MINIMAPA'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: 'ROUTE_PANEL_ID'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }}; 
 DLG1_DlgObj._mapSettings['MAPROUTE'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Metric',optimizeOrder: false,directionsPanel: 'Route'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }};
 DLG1_DlgObj._controls['LISTACATEGORIAS'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LISTACATEGORIAS'], settings: DLG1_DlgObj._listViewSettings['LISTACATEGORIAS'] }
@@ -6141,8 +6087,6 @@ DLG1_DlgObj._controls['MINIMAPA'] = { type: 'map', onInitialize: function() {  v
 mapObj.setZoom(17);;} ,   settings:  DLG1_DlgObj._mapSettings['MINIMAPA'] }
 DLG1_DlgObj._controls['MAPROUTE'] = { type: 'map', onInitialize: function() {  var mapObj = DLG1_DlgObj.getControl('MAPROUTE');
 mapObj.setZoom(13);;} ,   settings:  DLG1_DlgObj._mapSettings['MAPROUTE'] }
-DLG1_DlgObj._controls['HORA'] = { type: 'spinList', data: DLG1_DlgObj._spinListData['HORA'],   settings:  {theme: 'iOS7'} }
-DLG1_DlgObj._controls['MINUTOS'] = { type: 'spinList', data: DLG1_DlgObj._spinListData['MINUTOS'],   settings:  {theme: 'iOS7'} }
 DLG1_DlgObj.setVariables({});
 DLG1_DlgObj._dataBoundControls = ['CARRINHOID','CLIENTETELEFONE'];
 DLG1_DlgObj._primaryTableAlias = 'CARRINHO';
@@ -6261,24 +6205,14 @@ DLG1_DlgObj.createWindow('WDW_NOVARESERVA','modal',
 		direction: 'ltr'
 	},
 	disableMove: true,
-	theme: 'iOS7',
-	onShow: function() {var obj = DLG1_DlgObj.getControl('HORA');
-obj.refresh();
-var obj = DLG1_DlgObj.getControl('MINUTOS');
-obj.refresh();
-;},
-	onResize: function() {var obj = DLG1_DlgObj.getControl('HORA');
-obj.refresh();
-var obj = DLG1_DlgObj.getControl('MINUTOS');
-obj.refresh();
-;}
+	theme: 'iOS7'
 }
 	);
 DLG1_DlgObj._functions._showContainerWindow_WDW_NOVARESERVA = function(objEle) {
 	var currWindow = DLG1_DlgObj.getWindow('WDW_NOVARESERVA');
 	if(typeof DLG1_DlgObj._openWindows == 'undefined') DLG1_DlgObj._openWindows = {};
 	DLG1_DlgObj._openWindows['WDW_NOVARESERVA'] = currWindow;
-	currWindow.show('20px','20px');
+	currWindow.show();
 	}
 var path = DLG1_PanelObj._panelPath['PC_CATEGORIAS'];
 if(typeof path != 'undefined') {
@@ -7167,7 +7101,7 @@ ITENS_FOOTER: [],
 CARRINHO_FOOTER: [],
 WDW_LOGIN: ['UsuarioID','Senha','loggedIn'],
 WDW_NOVARESERVA: ['container:CONTAINER_12','ReservaDataHora'],
-CONTAINER_12: ['DataReserva','Hora','Minutos','Pessoas']
+CONTAINER_12: ['DataReserva','Pessoas']
 }
 DLG1_DlgObj._listsDV = ['LISTACARRINHOITEM'];
 //Add methods to the List prototype for Lists with Detail Views
@@ -9046,9 +8980,6 @@ if( DLG1_DlgObj._ativarPainel == 'PC_MENSAGENS' )
 
 
 
-
-
-
 $e.add('DLG1.V.R1.BUTTON_2',A5.d.evnts.click,function(e) {
 var qtd = $u.s.toNum(DLG1_DlgObj.getValue('Pessoas'));
 
@@ -9333,9 +9264,6 @@ if(listObj) listObj._state.whereParameters = '0|||N|carrinhoatual\n(51)9155-2004
 DLG1_DlgObj._list_executeEvent('MENUPRINCIPAL','afterRenderComplete',{});
 
 if(listObj._refreshStateMessages) listObj._refreshStateMessages();
-
-
-
 
 
 
