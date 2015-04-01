@@ -761,17 +761,7 @@ A5.serverSideDateFormat = 'dd/MM/yyyy';
 <div class="A5CWLayout" style="width: 100%" >
 	<label id="DLG1.LBL.R1.DATARESERVA" for="DLG1.V.R1.DATARESERVA" title="" class="iOS7DialogLabel" style="text-align: Center; display: block; ">Reserva para:</label>
 
-	<table id="DLG1.V.R1.DATARESERVA.CONTAINER" cellspacing="0" cellpadding="0" class="iOS7EditBG" style="width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;; display: inline-table; *display: inline;">
-<tr>
-<td style="width:100%">
-
-<input  	id="DLG1.V.R1.DATARESERVA" name="V.R1.DATARESERVA"  value=""  autocomplete="off"   size="200" class="iOS7EditBGEdit" style="text-align: center; width: 100%; ; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;" />
-
-</td>
-		<td class="iOS7EditBGSeparator" >&nbsp;</td>
-		<td id="DLG1.V.R1.DATARESERVA.BUTTON" class="iOS7EditBGButton" style="width: 0%;"><i class="iOS7Icon iOS7IconDown" ></i></td>
-	</tr>
-</table>
+	<input	type="datetime-local" id="DLG1.V.R1.DATARESERVA" title=""  autocapitalize="off"  autocorrect="off"     class="iOS7Edit" style="text-align: center; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"    name="V.R1.DATARESERVA"    value=""  'type="datetime"'  />
 
 </div><br style="clear:both; " />
 	
@@ -1744,62 +1734,6 @@ DLG1_DlgObj.fieldHelpers['SENHA'] = new A5.Edit({
 		showMask: false
 	}
 });
-if(!DLG1_DlgObj.fieldHelpers['DATARESERVA']) {  DLG1_DlgObj.fieldHelpers['DATARESERVA'] = new A5.EditDateTime({
-	theme: 'iOS7',
-	dateTime: {
-		format: 'dd/MM/yyyy ',
-		datePicker: {
-			days: DLG1_DlgObj.datePickerDayNames,
-			months: DLG1_DlgObj.datePickerMonthNames,
-			startDay: DLG1_DlgObj.datePickerFirstDayOfWeek-1,
-			calendar: {
-				lockColumnWidth: false,
-				daysOfWeek: {
-					show: true
-				},
-				weeksOfYear: {
-					show: false
-				}
-			},
-			disabledDates: {
-				low: '',
-				high: '',
-				days: []
-			},
-			navigator: {
-				header: {
-					todayButton: {
-						show: true,
-						location: 'right',
-						html: DLG1_DlgObj.datePickerTodayButton,
-						tip: ''
-					}
-				}
-			}
-		},
-		switchYear: 20
-	},
-	window: {
-		autoGenerateButtons: false,
-		buttons: {
-			items: [
-				{
-					html: 'OK',
-					action: 'commit'
-				},
-				{
-					html: 'Cancel',
-					action: 'close'
-				}			
-]
-		}
-	},
-	onSelect: function() {$e.execute(this,'change');} ,
-	multiple: {
-		allow: false
-	},
-	selectionRequired: false
-});}
 DLG1_DlgObj.lookups = {
 }
 DLG1_DlgObj.dialogWatches['SHOWHIDE_BTN_CATEGORIAS'] = {
@@ -2112,7 +2046,7 @@ DLG1_DlgObj.setValue('DEVICELATITUDE',DLG1_DlgObj.geolocation.latitude );
 DLG1_DlgObj.setValue('DEVICELONGITUDE',DLG1_DlgObj.geolocation.longitude );
 showMapRoute();}
 DLG1_DlgObj.setStateInfo({
-	__dialogGuid: 'de131590-dc25-400f-b93b-e6feb4bc0da0',
+	__dialogGuid: '461a0aa4-0952-4bf7-bec8-31f6814c06f4',
 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n',
 	__dtfmt: 'dd/MM/yyyy',
 	__tfmt: '',
@@ -6170,7 +6104,7 @@ DLG1_DlgObj._listViewData['LISTARESERVAS'] = A5DataArrayToObject(['ReservaID','C
  ]); 
 DLG1_DlgObj._listViewData['MENUPRINCIPAL'] = A5DataArrayToObject(['icone','opcao','painel'],[['','Home','PL_INICIO'],['','Card&aacutepio','PC_CATEGORIAS'],['','Carrinho','PC_CARRINHO_ITEM'],['','Endere&ccedilo','PC_ENDERECO'],['','Reservas','PC_RESERVAS'],['','Mensagens','PC_MENSAGENS'],['','Promo&ccedil&otildees','PC_PROMOCAO'],['','Meus Dados','PC_DADOS']]);
 ;
-DLG1_DlgObj.setStateInfo({ 	__dialogGuid: 'de131590-dc25-400f-b93b-e6feb4bc0da0', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
+DLG1_DlgObj.setStateInfo({ 	__dialogGuid: '461a0aa4-0952-4bf7-bec8-31f6814c06f4', 	argumentsBoundToCotrols: 'carrinhoAtual|Numeric={carrinhoID}\nusuarioAtual|Character={UsuarioID}\ncategoriaAtual|Numeric={listaCategorias}\n', 	__dtfmt: 'dd/MM/yyyy' });
 DLG1_DlgObj._spinListData['HORA'] = [
 {html: '&nbsp;', value: ''},
 {html: '08', value: '08'},
